@@ -7,33 +7,33 @@ import {
 
 export default StyleSheet.create({
   backgroundImage: {
-    flex: 1,
+    // flex: 1,
     width: null,
     height: null,
-    resizeMode: 'cover'
+    // resizeMode: 'cover'
   },
   nspiresHeader: {
     backgroundColor: '#2d5a96',
     padding: '.15rem 1rem',
-    paddingBottom: 0
+    paddingBottom: '0'
   },
   navbarBrand: {
     // background: 'url(../images/nspiresLogo.png) no-repeat transparent',
-    width: '520px',
-    height: '50px',
-    paddingTop: 0,
-    marginTop: '6px'
+    width: '520em',
+    height: '50em',
+    paddingTop: '0',
+    marginTop: '7rem'
   },
   nasaLogo: {
-    width: '60px',
-    height: '50px',
+    width: '60em',
+    height: '50em',
     // background: 'url(../images/nasa-logo.svg) no-repeat transparent',
     // backgroundSize: 'auto auto',
     // backgroundSize: '60px 50px',
-    marginTop: '6px'
+    marginTop: '6rem'
   },
   loginContainer : {
-    marginTop: '13px'
+    marginTop: '13rem'
   }
 
 });

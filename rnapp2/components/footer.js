@@ -60,4 +60,17 @@ const Footer = () => (
     </View>
 )
 
+const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+   paddingTop: 22,
+   flexDirection: 'row'
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+})
+
 export default Footer

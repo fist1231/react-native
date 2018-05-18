@@ -14,7 +14,10 @@ import {
 
 import Header from './components/header';
 import Footer from './components/footer';
+import Main from './components/Main';
+import { Tabs } from './components/TabNav';
 
+import { createBottomTabNavigator } from 'react-navigation';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -24,20 +27,30 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   render() {
     return (
 
       <View style={styles.container}>
-        {console.log('~~~~~~~~~~~~ in da App ~~~~~~~~~~~~')}
-        <View>
-          <Text>Nspires Refresh</Text>
-          <Header />
+          <View style={styles.headerContainer}>
+            <Header />
+          </View>
+
+          {/* <TabNav /> */}
+
+          <View style={styles.mainContainer}>
+            <Main />
+          </View>
           {/* <MainNav /> */}
-          {/* <Main /> */}
-        </View>
-        {/* <Footer /> */}
+          <View style={styles.footerContainer}>
+            <Footer />
+          </View>
         {/* <ModalRoot /> */}
+
+        <View>
+          <Tabs />
+        </View>
+
       </View>
 
       // <View style={styles.container}>
@@ -59,9 +72,32 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    // height: '100%'
+  },
+  mainContainer: {
+    width: '90%',
+    // height: '80%',
+    backgroundColor: 'steelblue',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    borderWidth: 2,
+    borderColor: 'steelblue',
+    borderRadius: 20
+  },
+  headerContainer: {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'powderblue',
+    justifyContent: 'space-evenly'
+  },
+  footerContainer: {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'powderblue',
+    // justifyContent: 'space-evenly'
   },
   welcome: {
     fontSize: 20,
@@ -74,3 +110,10 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default App;
+
+// export default createBottomTabNavigator({
+//   Home: Main,
+//   Settings: Main,
+// });

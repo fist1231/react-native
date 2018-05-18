@@ -1,6 +1,3 @@
 {
-  "presets": [
-    "react-native",
-  ],
-  "ignore": ["node_modules/**/*.*", "build/**/*.*"],
+  "presets": ["react-native"]
 }

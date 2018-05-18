@@ -28,26 +28,27 @@ const items=[
         ];
 
 const Header = () => (
-<View>
-  <ImageBackground source={require('../images/nspiresLogo.png')} style={headerStyles.backgroundImage}>
-
-      <View className="row">
-        <View style={headerStyles.nspiresLogoContainer}>
+<View style={styles.container}>
+      <View>
+        <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}>
           <TouchableHighlight onPress={() => Linking.openURL('http://google.com')}>
-            <Text className="navbar-brand">Press here</Text>
+            <Text className="navbar-brand">About</Text>
           </TouchableHighlight>
-        </View>
-        <View className="col ">
-          <View className="">
-            <Text>Login here</Text>
-            {/* <Login /> */}
-          </View>
-        </View>
-        <View className="col col-auto">
-          <View style={headerStyles.nasaLogo} />
-        </View>
+        </ImageBackground>
       </View>
-  </ImageBackground>
+      <View>
+          <Text>Login</Text>
+          {/* <Login /> */}
+      </View>
+      <View>
+        <Text>Help</Text>
+        {/* <View style={headerStyles.nasaLogo} /> */}
+      </View>
+      <Image
+        style={styles.image}
+        source={{uri: '../images/nasaLogo.png'}}
+      />
+
 </View>
 
 )
@@ -55,12 +56,18 @@ const Header = () => (
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-   paddingTop: 22
+   paddingTop: 2,
+   flexDirection: 'row',
+   justifyContent: 'space-evenly'
   },
   item: {
     padding: 10,
     fontSize: 18,
     height: 44,
+  },
+  image: {
+    width: 30,
+    height: 30,
   },
 })
 

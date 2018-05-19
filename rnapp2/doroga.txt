@@ -24,3 +24,49 @@ e. start 2 consoles:
 1. npm install -g react-native-cli
 2. npm install -g yarn
 3. react-native init rnapp2
+
+=================================================================
+
+
+1. Clear watchman watches: `watchman watch-del-all`.
+2. Delete the `node_modules` folder: `rm -rf node_modules && npm install`
+.
+3. Reset Metro Bundler cache: `rm -rf /tmp/metro-bundler-cache-*` or `npm
+start -- --reset-cache`.  4. Remove haste cache: `rm -rf /tmp/haste-map-re
+act-native-packager-*`.
+
+npm start -- --reset-cache
+
+check version: npm list react
+
+
+
+delete node_modules, run yarn
+remove read-only attribute
+
+react to 16.3.0:
+npm install react@16.3.0 --save
+
+downgrade react-navigation to 2.0.0.
+npm install react-navigation@2.0.0 --save
+
+
+=================== Last successful sequence ====================
+
+npm install react-navigation@2.0.0
+
+C:\repo\react-native\rnapp2>npm list react-navigation
+rnapp2@0.0.1 C:\repo\react-native\rnapp2
+`-- react-navigation@2.0.0
+
+npm install react@16.3.0
+npm install react@16.3.1 --save
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+in package.json:
+
+"react": "^16.3.1",
+"react-navigation": "2.0.0"
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+npm start -- --reset-cache

@@ -10,11 +10,11 @@ import {
 } from 'react-native';
 
 // const Main = () => (
-class Main extends React.Component {
+class About extends React.Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Text>Main Component</Text>
+        <Text>About Component</Text>
       </View>
     );
   }
@@ -23,7 +23,7 @@ class Main extends React.Component {
 
 // )
 
-export default Main
+export default About
 
 const styles = StyleSheet.create({
     mainContainer: {

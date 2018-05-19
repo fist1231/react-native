@@ -15,9 +15,11 @@ import {
 import Header from './components/header';
 import Footer from './components/footer';
 import Main from './components/Main';
-import { Tabs } from './components/TabNav';
+import TabNav from './components/TabNav';
 
-import { createBottomTabNavigator } from 'react-navigation';
+import UsersTable from './components/users/UsersTable';
+
+// import { createBottomTabNavigator } from 'react-navigation';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -36,20 +38,21 @@ class App extends Component<Props> {
             <Header />
           </View>
 
+          <View style={styles.navContainer}>
+            <TabNav />
+            {/* <UsersTable /> */}
+          </View>
+
           {/* <TabNav /> */}
 
-          <View style={styles.mainContainer}>
+          {/* <View style={styles.mainContainer}>
             <Main />
-          </View>
+          </View> */}
           {/* <MainNav /> */}
           <View style={styles.footerContainer}>
             <Footer />
           </View>
         {/* <ModalRoot /> */}
-
-        <View>
-          <Tabs />
-        </View>
 
       </View>
 
@@ -72,14 +75,23 @@ class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'space-between',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    // backgroundColor: '#F5FCFF',
+    height: '100%'
+  },
+  navContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
+    // alignItems: 'center',
+    width: '100%',
     backgroundColor: '#F5FCFF',
-    // height: '100%'
+    height: '20%'
   },
   mainContainer: {
+    // flex: 1,
     width: '90%',
-    // height: '80%',
+    height: '70%',
     backgroundColor: 'steelblue',
     alignItems: 'center',
     justifyContent: 'space-evenly',
@@ -88,12 +100,14 @@ const styles = StyleSheet.create({
     borderRadius: 20
   },
   headerContainer: {
+    // flex: 1,
     width: '100%',
     height: 50,
     backgroundColor: 'powderblue',
     justifyContent: 'space-evenly'
   },
   footerContainer: {
+    // flex: 1,
     width: '100%',
     height: 50,
     backgroundColor: 'powderblue',

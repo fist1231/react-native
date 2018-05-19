@@ -32,18 +32,13 @@ const Header = () => (
       <View>
         <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}>
           <TouchableHighlight onPress={() => Linking.openURL('http://google.com')}>
-            <Text className="navbar-brand">About</Text>
+            <Text className="navbar-brand">NRESS Refresh</Text>
           </TouchableHighlight>
         </ImageBackground>
       </View>
-      <View>
-          <Text>Login</Text>
-          {/* <Login /> */}
-      </View>
-      <View>
+      {/* <View>
         <Text>Help</Text>
-        {/* <View style={headerStyles.nasaLogo} /> */}
-      </View>
+      </View> */}
       <Image
         style={styles.image}
         source={{uri: '../images/nasaLogo.png'}}

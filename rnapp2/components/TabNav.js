@@ -14,32 +14,32 @@ const TabNav = TabNavigator(
     Users: UsersTable,
     About: About,
     Login: Login,
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Users') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Avout') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Login') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
-      },
-    }),
-    tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-    },
   }
+  // ,{
+  //   navigationOptions: ({ navigation }) => ({
+  //     tabBarIcon: ({ focused, tintColor }) => {
+  //       const { routeName } = navigation.state;
+  //       let iconName;
+  //       if (routeName === 'Home') {
+  //         iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+  //       } else if (routeName === 'Users') {
+  //         iconName = `ios-options${focused ? '' : '-outline'}`;
+  //       } else if (routeName === 'Avout') {
+  //         iconName = `ios-options${focused ? '' : '-outline'}`;
+  //       } else if (routeName === 'Login') {
+  //         iconName = `ios-options${focused ? '' : '-outline'}`;
+  //       }
+  //
+  //       // You can return any component that you like here! We usually use an
+  //       // icon component from react-native-vector-icons
+  //       return <Ionicons name={iconName} size={25} color={tintColor} />;
+  //     },
+  //   }),
+  //   tabBarOptions: {
+  //     activeTintColor: 'tomato',
+  //     inactiveTintColor: 'gray',
+  //   },
+  // }
 );
 
 export default TabNav

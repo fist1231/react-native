@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import { Table, TableWrapper, Row } from 'react-native-table-component';
+import { usersMock } from '../../config/MockData.js'
 
 // const Main = () => (
 class UsersTable extends React.Component {
@@ -13,44 +14,45 @@ class UsersTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tableHead: ['Head', 'Head2', 'Head3', 'Head4', 'Head5', 'Head6', 'Head7', 'Head8', 'Head9'],
-      widthArr: [40, 60, 80, 100, 120, 140, 160, 180, 200]
+      tableHead: ['Username', 'First', 'Last', 'Registered on'],
+      widthArr: [40, 60, 80, 100]
     }
   }
 
 
-  componentDidMount() {
+  componentWillMount() {
     // console.log('------------ isLoading? ' + this.props.isLoading);
     // this.props.isLoading?null:this.setState({proposals: this.props.value});
-    const tableData = [];
-    for (let i = 0; i < 30; i += 1) {
-      const rowData = [];
-      for (let j = 0; j < 9; j += 1) {
-        rowData.push(`${i}${j}`);
-      }
-      tableData.push(rowData);
+    // const tableData = [];
+    const tableData = usersMock();
+    // for (let i = 0; i < 30; i += 1) {
+    //   const rowData = [];
+    //   for (let j = 0; j < 9; j += 1) {
+    //     rowData.push(`${i}${j}`);
+    //   }
+    //   tableData.push(rowData);
 
 
-      this.setState({tableData: this.tableData});
-    }
+      this.setState({tableData: tableData});
+    // }
   }
 
   render() {
 
     // const state = this.state;
 
-    const tableData = [];
-    for (let i = 0; i < 30; i += 1) {
-      const rowData = [];
-      for (let j = 0; j < 9; j += 1) {
-        rowData.push(`${i}${j}`);
-      }
-      tableData.push(rowData);
-    }
+    // const tableData = [];
+    // for (let i = 0; i < 30; i += 1) {
+    //   const rowData = [];
+    //   for (let j = 0; j < 9; j += 1) {
+    //     rowData.push(`${i}${j}`);
+    //   }
+    //   tableData.push(rowData);
+    // }
 
     return (
         <View style={styles.container}>
-          <ScrollView horizontal={true}>
+          {/* <ScrollView horizontal={true}> */}
             <View>
               <Table borderStyle={{borderColor: '#C1C0B9'}}>
                 <Row data={this.state.tableHead} widthArr={this.state.widthArr} style={styles.header} textStyle={styles.text}/>
@@ -58,10 +60,10 @@ class UsersTable extends React.Component {
               <ScrollView style={styles.dataWrapper}>
                 <Table borderStyle={{borderColor: '#C1C0B9'}}>
                   {
-                    tableData.map((rowData, index) => (
+                    this.state.tableData.map((rowData, index) => (
                       <Row
                         key={index}
-                        data={rowData}
+                        data={[rowData.USERNAME, rowData.FIRST_NAME, rowData.LAST_NAME, rowData.REGISTRATION_DATE]}
                         widthArr={this.state.widthArr}
                         style={[styles.row, index%2 && {backgroundColor: '#F7F6E7'}]}
                         textStyle={styles.text}
@@ -71,7 +73,7 @@ class UsersTable extends React.Component {
                 </Table>
               </ScrollView>
             </View>
-          </ScrollView>
+          {/* </ScrollView> */}
         </View>
     );
   }

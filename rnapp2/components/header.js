@@ -30,19 +30,19 @@ const items=[
 const Header = () => (
 <View style={styles.container}>
       <View>
-        <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}>
+        {/* <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}> */}
           <TouchableHighlight onPress={() => Linking.openURL('http://google.com')}>
             <Text className="navbar-brand">NRESS Refresh</Text>
           </TouchableHighlight>
-        </ImageBackground>
+        {/* </ImageBackground> */}
       </View>
       {/* <View>
         <Text>Help</Text>
       </View> */}
-      <Image
+      {/* <Image
         style={styles.image}
         source={{uri: '../images/nasaLogo.png'}}
-      />
+      /> */}
 
 </View>
 

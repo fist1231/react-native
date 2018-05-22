@@ -80,7 +80,7 @@ adb shell input keyevent 82
 cd android then try to & ./gradlew clean. then & ./gradlew assembleRelease
 react-native run-android --variant=release
 
-############ Production release to device ######################################
+############ Production release to device on Android ######################################
 
 1. generate key
 cd c:\java\jdk****\bin
@@ -119,3 +119,52 @@ android {
 }
 
 4. run: react-native run-android --variant=release
+
+
+
+############ Production release to device on IOS ######################################
+
+1. install xcode
+2. clone git repo
+
+https://facebook.github.io/react-native/docs/getting-started.html
+
+1. install Homebrew
+2. brew install node
+3. brew install watchman
+
+4. npm install -g react-native-cli
+
+cd react-native/rnapp2
+5. npm install
+6.
+
+start xcode.
+https://blog.ionicframework.com/deploying-to-a-device-without-an-apple-developer-account/
+https://facebook.github.io/react-native/docs/running-on-device.html
+
+trust device: Product -> Destination -> device
+on device: settings, general, device management, trust certificate
+
+
+
+
+
+
+*******************************************************************************************
+
+google cloud:
+https://cloud.google.com/kubernetes-engine/docs/quickstart
+
+C:\Google\CloudSDK>gcloud container clusters list
+NAME       LOCATION       MASTER_VERSION  MASTER_IP       MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
+cluster-1  us-central1-a  1.8.10-gke.0    104.197.251.95  n1-standard-1  1.8.10-gke.0  3          RUNNING
+
+gcloud container clusters get-credentials cluster-1
+
+to config kubectl and access cluster:
+gcloud container clusters get-credentials cluster-1 --zone=us-central1-a
+
+
+kubectl run hello-server --image gcr.io/google-samples/hello-app:1.0 --port 8080
+kubectl expose deployment hello-server --type "LoadBalancer"

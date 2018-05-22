@@ -15,7 +15,7 @@ class UsersTable extends React.Component {
     super(props);
     this.state = {
       tableHead: ['Username', 'First', 'Last', 'Registered on'],
-      widthArr: [40, 60, 80, 100]
+      // widthArr: [40, 60, 80, 100]
     }
   }
 
@@ -64,7 +64,7 @@ class UsersTable extends React.Component {
                       <Row
                         key={index}
                         data={[rowData.USERNAME, rowData.FIRST_NAME, rowData.LAST_NAME, rowData.REGISTRATION_DATE]}
-                        widthArr={this.state.widthArr}
+                        // widthArr={this.state.widthArr}
                         style={[styles.row, index%2 && {backgroundColor: '#F7F6E7'}]}
                         textStyle={styles.text}
                       />
@@ -86,7 +86,7 @@ export default UsersTable
 
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#C5F7F1' },
     header: { height: 50, backgroundColor: '#537791' },
     text: { textAlign: 'center', fontWeight: '100' },
     dataWrapper: { marginTop: -1 },

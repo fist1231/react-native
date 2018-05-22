@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
+    backgroundColor: '#C5F7F1',
     height: '100%'
   },
   navContainer: {

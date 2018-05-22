@@ -10,10 +10,10 @@ import Login from '../components/Login';
 
 const TabNav = TabNavigator(
   {
+    Login: Login,
     Home: Main,
     Users: UsersTable,
     About: About,
-    Login: Login,
   }
   // ,{
   //   navigationOptions: ({ navigation }) => ({

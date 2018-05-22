@@ -13,8 +13,8 @@ import {
 class Main extends React.Component {
   render() {
     return (
-      <View style={styles.mainContainer}>
-        <Text>Main Component</Text>
+      <View style={styles.container}>
+        <Text>Dashboard:</Text>
       </View>
     );
   }
@@ -26,6 +26,7 @@ class Main extends React.Component {
 export default Main
 
 const styles = StyleSheet.create({
+    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#C5F7F1' },
     mainContainer: {
     // flex: 1,
     width: '100%',

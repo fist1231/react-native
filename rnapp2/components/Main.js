@@ -8,9 +8,15 @@ import {
   TouchableHighlight,
   Image, ImageBackground
 } from 'react-native';
+import Header from '../components/header'
 
 // const Main = () => (
 class Main extends React.Component {
+
+  static navigationOptions = {
+    headerTitle: <Header />,
+  };
+
   render() {
     return (
       <View style={styles.container}>

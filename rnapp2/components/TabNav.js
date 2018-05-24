@@ -1,8 +1,8 @@
 import React from 'react'
 // You can import Ionicons from @expo/vector-icons if you use Expo or
 // react-native-vector-icons/Ionicons otherwise.
-// import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Ionicons } from '@expo/vector-icons'; // Version can be specified in package.json
+import Ionicons from 'react-native-vector-icons/Ionicons';
+// import { Ionicons } from '@expo/vector-icons'; // Version can be specified in package.json
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'; // Version can be specified in package.json
 import Main from '../components/Main';
 import UsersTable from '../components/users/UsersTable';
@@ -34,13 +34,15 @@ const TabNav = TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          iconName = `ios-home${focused ? '' : '-outline'}`;
         } else if (routeName === 'Users') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Avout') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
+          iconName = `ios-people${focused ? '' : '-outline'}`;
+        } else if (routeName === 'About') {
+          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+        } else if (routeName === 'Settings') {
+          iconName = `ios-cog${focused ? '' : '-outline'}`;
         } else if (routeName === 'Login') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
+          iconName = `ios-lock${focused ? '' : '-outline'}`;
         }
 
         // You can return any component that you like here! We usually use an

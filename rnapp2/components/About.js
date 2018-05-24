@@ -12,9 +12,14 @@ import {
 
 import config from '../config/config.json'
 import axios from 'axios';
+import Header from '../components/header'
 
 // const Main = () => (
 class About extends React.Component {
+
+  static navigationOptions = {
+    headerTitle: <Header />,
+  };
 
   constructor(props) {
     super(props);

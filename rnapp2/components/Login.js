@@ -10,10 +10,17 @@ import {
 } from 'react-native';
 
 import LoginForm from '../components/forms/formik/LoginForm'
+import Header from '../components/header'
 
 
 // const Main = () => (
 class Login extends React.Component {
+
+  static navigationOptions = {
+    // headerTitle instead of title
+    headerTitle: <Header />,
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -30,15 +37,4 @@ export default Login
 
 const styles = StyleSheet.create({
     container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#C5F7F1' },
-    mainContainer: {
-    // flex: 1,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'steelblue',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    borderWidth: 2,
-    borderColor: 'steelblue',
-    borderRadius: 20
-  },
 });

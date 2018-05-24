@@ -70,7 +70,7 @@ const LoginForm = ({ navProp }) => {
                   icon="fa-close"
                   onPress={() => _handleCancel()}
                   title="Cancel"
-                  color="#841584"
+                  color="#A7ABAD"
                 />
               </View>
           </View>
@@ -130,12 +130,12 @@ const LoginForm = ({ navProp }) => {
 export default LoginForm;
 
 const styles = StyleSheet.create({
-  container2: {
-    flex: 1,
+  container: {
+    // flex: 1,
     // justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: '#C5F7F1',
-    height: '100%'
+    // height: '100%'
 
   },
   marg: {marginBottom: 20}

@@ -1,16 +1,11 @@
 import React from 'react'
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Table, TableWrapper, Row } from 'react-native-table-component';
-import { usersMock } from '../../config/MockData.js'
+import { reviewProposalsMock } from '../../config/MockData.js'
 import Header from '../../components/header'
 
 // const Main = () => (
-class UsersTable extends React.Component {
+class ReviewProposalsTable extends React.Component {
 
   static navigationOptions = {
     headerTitle: <Header />,
@@ -19,42 +14,18 @@ class UsersTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tableHead: ['Username', 'First', 'Last', 'Registered on'],
+      tableHead: ['Number', 'Panel', 'PI', 'Status', 'Grade'],
       // widthArr: [40, 60, 80, 100]
     }
   }
 
 
   componentWillMount() {
-    // console.log('------------ isLoading? ' + this.props.isLoading);
-    // this.props.isLoading?null:this.setState({proposals: this.props.value});
-    // const tableData = [];
-    const tableData = usersMock();
-    // for (let i = 0; i < 30; i += 1) {
-    //   const rowData = [];
-    //   for (let j = 0; j < 9; j += 1) {
-    //     rowData.push(`${i}${j}`);
-    //   }
-    //   tableData.push(rowData);
-
-
-      this.setState({tableData: tableData});
-    // }
+    const tableData = reviewProposalsMock();
+    this.setState({tableData: tableData});
   }
 
   render() {
-
-    // const state = this.state;
-
-    // const tableData = [];
-    // for (let i = 0; i < 30; i += 1) {
-    //   const rowData = [];
-    //   for (let j = 0; j < 9; j += 1) {
-    //     rowData.push(`${i}${j}`);
-    //   }
-    //   tableData.push(rowData);
-    // }
-
     return (
         <View style={styles.container}>
           {/* <ScrollView horizontal={true}> */}
@@ -68,7 +39,7 @@ class UsersTable extends React.Component {
                     this.state.tableData.map((rowData, index) => (
                       <Row
                         key={index}
-                        data={[rowData.USERNAME, rowData.FIRST_NAME, rowData.LAST_NAME, rowData.REGISTRATION_DATE]}
+                        data={[rowData.RESPONSE_NUMBER+''+rowData.RESPONSE_SEQ_NUMBER, rowData.ACRONYM, rowData.LAST_NAME, rowData.PSTATE, rowData.GRADE]}
                         // widthArr={this.state.widthArr}
                         style={[styles.row, index%2 && {backgroundColor: '#F7F6E7'}]}
                         textStyle={styles.text}
@@ -87,7 +58,7 @@ class UsersTable extends React.Component {
 
 // )
 
-export default UsersTable
+export default ReviewProposalsTable
 
 
 const styles = StyleSheet.create({

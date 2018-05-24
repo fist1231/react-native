@@ -32,7 +32,7 @@ const Header = () => (
       <View>
         {/* <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}> */}
           <TouchableHighlight onPress={() => Linking.openURL('http://google.com')}>
-            <Text style={styles.hdr}>NRESS Refresh</Text>
+            <Text style={styles.hdr}>NSPIRES</Text>
           </TouchableHighlight>
         {/* </ImageBackground> */}
       </View>
@@ -51,17 +51,23 @@ const Header = () => (
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-   paddingTop: 16,
-   flexDirection: 'row',
-   justifyContent: 'space-evenly',
-   backgroundColor: '#11246F',
+   // paddingTop: 16,
+   // flexDirection: 'row',
+   justifyContent: 'center',
+   alignItems: 'center',
+   backgroundColor: '#44C7F5',
+   height: '100%',
   },
-  hdr: {color: '#fff'},
+  hdr: {
+    color: '#F2F7F9',
+    // fontWeight: 'bold',
+    fontSize: 36,
+    fontFamily: 'TimesSansSerif',
+  },
   item: {
     padding: 10,
     fontSize: 18,
     // height: 44,
-    fontWeight: 'bold',
   },
   image: {
     width: 30,

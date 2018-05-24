@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment';
 
-const numrows = 10;
+const numrows = 21;
 var dte = moment();
 
 export const usersMock = () => {

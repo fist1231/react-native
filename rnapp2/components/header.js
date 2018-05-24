@@ -32,7 +32,7 @@ const Header = () => (
       <View>
         {/* <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}> */}
           <TouchableHighlight onPress={() => Linking.openURL('http://google.com')}>
-            <Text className="navbar-brand">NRESS Refresh</Text>
+            <Text style={styles.hdr}>NRESS Refresh</Text>
           </TouchableHighlight>
         {/* </ImageBackground> */}
       </View>
@@ -51,14 +51,17 @@ const Header = () => (
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-   paddingTop: 2,
+   paddingTop: 16,
    flexDirection: 'row',
-   justifyContent: 'space-evenly'
+   justifyContent: 'space-evenly',
+   backgroundColor: '#11246F',
   },
+  hdr: {color: '#fff'},
   item: {
     padding: 10,
     fontSize: 18,
-    height: 44,
+    // height: 44,
+    fontWeight: 'bold',
   },
   image: {
     width: 30,

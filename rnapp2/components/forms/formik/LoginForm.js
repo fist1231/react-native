@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
-const LoginForm = () => {
+const LoginForm = ({ navProp }) => {
 
   const innerForm = (props) => {
     const {
@@ -22,21 +22,24 @@ const LoginForm = () => {
     } = props;
 
 
-    const _handleAction = (value) => {
+    const _handleLogin = (value) => {
+      navProp.navigate('Users')
+    }
+
+    const _handleCancel = (value) => {
+      navProp.navigate('About')
     }
 
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.marg}>
               <Text>Username</Text>
-            </View>
-            <View>
               <TextInput
                 onChangeText={text => setFieldValue('username', text)}
               />
             </View>
-            <View>
+            <View style={styles.marg}>
                 <Text>Password</Text>
                 <TextInput
                   enablesReturnKeyAutomatically={true}
@@ -51,20 +54,21 @@ const LoginForm = () => {
                   secureTextEntry={true}
                 />
             </View>
-            <View>
+            <View style={styles.marg}>
                 <Button
                   className="btn btn-primary btn-block mb-3"
                   icon="fa-close"
                   disabled={isSubmitting}
+                  onPress={() => _handleLogin()}
                   title="Log In"
                 />
               </View>
-              <View>
+              <View style={styles.marg}>
                 <Button
                   type="reset"
                   className="btn btn-secondary btn-block"
                   icon="fa-close"
-                  onPress={() => _handleAction()}
+                  onPress={() => _handleCancel()}
                   title="Cancel"
                   color="#841584"
                 />
@@ -134,4 +138,5 @@ const styles = StyleSheet.create({
     height: '100%'
 
   },
+  marg: {marginBottom: 20}
 });

@@ -168,3 +168,16 @@ gcloud container clusters get-credentials cluster-1 --zone=us-central1-a
 
 kubectl run hello-server --image gcr.io/google-samples/hello-app:1.0 --port 8080
 kubectl expose deployment hello-server --type "LoadBalancer"
+
+*****************************************************************************************
+
+icons not working:
+
+1. react-native link
+
+2. build.gradle file on /android/app.
+put in dependencies
+compile project(':react-native-vector-icons')
+
+3. clear read-only off directory
+4. npm start -- --reset-cache

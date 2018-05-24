@@ -16,8 +16,11 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Main from './components/Main';
 import TabNav from './components/TabNav';
+import BottomTabNav from './components/BottomTabNav';
 
 import UsersTable from './components/users/UsersTable';
+import { YellowBox } from 'react-native'
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 
 // import { createBottomTabNavigator } from 'react-navigation';
 
@@ -31,30 +34,19 @@ const instructions = Platform.select({
 type Props = {};
 class App extends Component<Props> {
   render() {
-    return (
+    return <View style={styles.container}><BottomTabNav /></View>;
 
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
           <View style={styles.headerContainer}>
             <Header />
           </View>
-
           <View style={styles.navContainer}>
-            <TabNav />
-            {/* <UsersTable /> */}
+            <BottomTabNav />
           </View>
-
-          {/* <TabNav /> */}
-
-          {/* <View style={styles.mainContainer}>
-            <Main />
-          </View> */}
-          {/* <MainNav /> */}
           <View style={styles.footerContainer}>
             <Footer />
           </View>
-        {/* <ModalRoot /> */}
-
-      </View>
+      </View> */}
 
       // <View style={styles.container}>
       //   <Text style={styles.welcome}>
@@ -68,7 +60,6 @@ class App extends Component<Props> {
       //   </Text>
       // </View>
 
-    );
   }
 }
 
@@ -125,7 +116,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+// export default App;
+export default BottomTabNav;
 
 // export default createBottomTabNavigator({
 //   Home: Main,

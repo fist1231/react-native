@@ -17,7 +17,7 @@ class Login extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <LoginForm />
+        <LoginForm navProp={ this.props.navigation } />
       </View>
     );
   }
@@ -40,5 +40,5 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'steelblue',
     borderRadius: 20
-  }
+  },
 });

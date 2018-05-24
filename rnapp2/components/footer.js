@@ -63,13 +63,15 @@ const Footer = () => (
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-   paddingTop: 22,
-   flexDirection: 'row'
+   paddingTop: 1,
+   flexDirection: 'row',
+   backgroundColor: '#11246F'
   },
   item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
+    padding: 0,
+    fontSize: 8,
+    fontWeight: 'bold',
+    // height: 44,
   },
 })
 

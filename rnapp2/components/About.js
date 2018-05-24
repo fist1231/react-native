@@ -22,13 +22,13 @@ class About extends React.Component {
     this.helpItems = this.helpItems.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.helpItems();
   }
 
   helpItems = () => {
     axios
-      .get(`${config.gateway_address}help/reviews`)
+      .get(`${config.help_address}help/reviews`)
       .then(response => {
         // console.log('********** ReviewProposalsHelpSrv: users help result:' + JSON.stringify(response.data.items));
         // response.json(response.data);
@@ -45,7 +45,7 @@ class About extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Review Help</Text>
+        <Text style={styles.h3}>Review Help</Text>
         {/* <FlatList
           data={this.state.helpIts}
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
@@ -82,5 +82,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'steelblue',
     borderRadius: 20
-  }
+  },
+  h3: {fontWeight: 'bold', paddingBottom: 20}
 });

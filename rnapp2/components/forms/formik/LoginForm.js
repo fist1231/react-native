@@ -3,7 +3,7 @@ import { withFormik } from "formik"
 // import Yup from "yup";
 import * as Yup from 'yup'
 
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 
 const LoginForm = ({ navProp }) => {
 
@@ -33,15 +33,21 @@ const LoginForm = ({ navProp }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.marg}>
-              <Text>Username</Text>
+              <Text style={styles.label}>Username</Text>
               <TextInput
-                onChangeText={text => setFieldValue('username', text)}
+                  style={styles.inputText} 
+                  onChangeText={text => setFieldValue('username', text)}
+                  autoCapitalize='none'
+                  autoCorrect={false}
+                  returnKeyType='done'
+                  keyboardType='default'
+                  name='username'
+                  value={values.username}
               />
-            </View>
-            <View style={styles.marg}>
-                <Text>Password</Text>
-                <TextInput
+
+                <Text style={styles.label}>Password</Text>
+                <TextInput 
+                  style={styles.inputText} 
                   enablesReturnKeyAutomatically={true}
                   autoCapitalize='none'
                   autoCorrect={false}
@@ -53,26 +59,20 @@ const LoginForm = ({ navProp }) => {
                   value={values.pwd}
                   secureTextEntry={true}
                 />
-            </View>
-            <View style={styles.marg}>
-                <Button
-                  className="btn btn-primary btn-block mb-3"
-                  icon="fa-close"
-                  disabled={isSubmitting}
+
+                <TouchableOpacity 
+                  style={styles.loginButton} 
                   onPress={() => _handleLogin()}
-                  title="Log In"
-                />
-              </View>
-              <View style={styles.marg}>
-                <Button
-                  type="reset"
-                  className="btn btn-secondary btn-block"
-                  icon="fa-close"
+                >
+                    <Text style={styles.buttonText}>Log In</Text>
+                </TouchableOpacity> 
+                
+                <TouchableOpacity
+                  style={styles.cancelButton}
                   onPress={() => _handleCancel()}
-                  title="Cancel"
-                  color="#A7ABAD"
-                />
-              </View>
+                >
+                    <Text style={styles.buttonText}>Cancel</Text>
+                </TouchableOpacity>
           </View>
     );
   };
@@ -131,12 +131,67 @@ export default LoginForm;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: '#C5F7F1',
-    // height: '100%'
+    // backgroundColor: '#C5F7F1',
+    height: '100%',
+    width: '100%',
 
   },
-  marg: {marginBottom: 20}
+  marg: {marginBottom: 20},
+  inputText: {
+    borderBottomWidth: 1, 
+    borderBottomColor: '#A7ABAD',
+    // width: '60%',
+    // textAlign: 'center',
+    // alignItems: 'center',
+    marginRight: 40,
+    marginLeft: 40,
+    marginTop: 10,
+    marginBottom: 10,
+    // paddingTop: 10,
+    // paddingBottom: 10,
+  },
+  label: {
+    color: '#A7ABAD',
+    marginRight: 40,
+    marginLeft: 40,
+    // marginTop: 10,
+    // marginBottom: 10,
+    // paddingTop: 10,
+    // paddingBottom: 10,
+ },
+  loginButton: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginTop: 10,
+    marginBottom: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: '#6989DE',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    // width: '60%',
+  },
+  cancelButton: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginTop: 10,
+    marginBottom: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: '#A7ABAD',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    // width: '60%',
+  },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
+  }
 });

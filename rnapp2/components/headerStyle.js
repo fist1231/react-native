@@ -42,7 +42,7 @@ export default StyleSheet.create({
    justifyContent: 'center',
    alignItems: 'center',
    backgroundColor: '#44C7F5',
-   height: '100%',
+   height: 60,
   },
   innerContainer: {
    flex: 1,
@@ -52,7 +52,7 @@ export default StyleSheet.create({
    // justifyContent: 'center',
    alignItems: 'center',
    // backgroundColor: '#44C7F5',
-   height: '100%',
+   // height: '100%',
    padding: 10,
   },
   hdr: {
@@ -67,8 +67,9 @@ export default StyleSheet.create({
     // height: 44,
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
+    alignSelf: 'flex-start',
   },
 
 });

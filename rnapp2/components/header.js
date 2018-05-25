@@ -32,8 +32,7 @@ const Header = () => (
       <View style={headerStyles.innerContainer}>
         {/* <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}> */}
           <Image
-            style={{width: 40, height: 40, alignSelf: 'flex-start'}}
-            // style={headerStyles.image}
+            style={headerStyles.image}
             source={require('../img/logo.png')}
           />
           <View style={headerStyles.container}>

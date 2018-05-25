@@ -10,6 +10,13 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 // import { createBottomTabNavigator } from 'react-navigation';
 
 class App extends Component {
+
+  componentDidMount() {
+  	// do stuff while splash screen is shown
+      // After having done stuff (such as async tasks) hide the splash screen
+      SplashScreen.hide();
+  }
+
   render() {
     // return (<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}><BottomTabNav /></View>);
   }

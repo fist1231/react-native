@@ -28,52 +28,28 @@ const items=[
         ];
 
 const Header = () => (
-<View style={styles.container}>
-      <View>
+<View style={headerStyles.container}>
+      <View style={headerStyles.innerContainer}>
         {/* <ImageBackground source={require('../images/nasa-logo.svg')} style={headerStyles.backgroundImage}> */}
-          <TouchableHighlight onPress={() => Linking.openURL('http://google.com')}>
-            <Text style={styles.hdr}>NSPIRES</Text>
-          </TouchableHighlight>
+          <Image
+            style={{width: 40, height: 40, alignSelf: 'flex-start'}}
+            // style={headerStyles.image}
+            source={require('../img/logo.png')}
+          />
+          <View style={headerStyles.container}>
+            <TouchableHighlight onPress={() => Linking.openURL('http://google.com')}>
+              <Text style={headerStyles.hdr}>NSPIRES</Text>
+            </TouchableHighlight>
+          </View>
         {/* </ImageBackground> */}
       </View>
+
       {/* <View>
         <Text>Help</Text>
       </View> */}
-      {/* <Image
-        style={styles.image}
-        source={{uri: '../images/nasaLogo.png'}}
-      /> */}
 
 </View>
 
 )
-
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   // paddingTop: 16,
-   // flexDirection: 'row',
-   justifyContent: 'center',
-   alignItems: 'center',
-   backgroundColor: '#44C7F5',
-   height: '100%',
-  },
-  hdr: {
-    color: '#F2F7F9',
-    // fontWeight: 'bold',
-    fontSize: 36,
-    fontFamily: 'TimesSansSerif',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    // height: 44,
-  },
-  image: {
-    width: 30,
-    height: 30,
-  },
-})
-
 
 export default Header

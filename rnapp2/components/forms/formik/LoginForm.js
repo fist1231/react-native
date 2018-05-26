@@ -3,7 +3,7 @@ import { withFormik } from "formik"
 // import Yup from "yup";
 import * as Yup from 'yup'
 
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, TouchableNativeFeedback } from 'react-native'
 
 const LoginForm = ({ navProp }) => {
 
@@ -35,7 +35,7 @@ const LoginForm = ({ navProp }) => {
         <View style={styles.container}>
               <Text style={styles.label}>Username</Text>
               <TextInput
-                  style={styles.inputText} 
+                  style={styles.inputText}
                   onChangeText={text => setFieldValue('username', text)}
                   autoCapitalize='none'
                   autoCorrect={false}
@@ -43,11 +43,12 @@ const LoginForm = ({ navProp }) => {
                   keyboardType='default'
                   name='username'
                   value={values.username}
+                  underlineColorAndroid='transparent'
               />
 
                 <Text style={styles.label}>Password</Text>
-                <TextInput 
-                  style={styles.inputText} 
+                <TextInput
+                  style={styles.inputText}
                   enablesReturnKeyAutomatically={true}
                   autoCapitalize='none'
                   autoCorrect={false}
@@ -58,18 +59,21 @@ const LoginForm = ({ navProp }) => {
                   onChangeText={text => setFieldValue('pwd', text)}
                   value={values.pwd}
                   secureTextEntry={true}
+                  underlineColorAndroid='transparent'
                 />
 
-                <TouchableOpacity 
-                  style={styles.loginButton} 
+                <TouchableOpacity
+                  style={styles.loginButton}
                   onPress={() => _handleLogin()}
+                  activeOpacity={0.8}
                 >
                     <Text style={styles.buttonText}>Log In</Text>
-                </TouchableOpacity> 
-                
+                </TouchableOpacity>
+
                 <TouchableOpacity
                   style={styles.cancelButton}
                   onPress={() => _handleCancel()}
+                  activeOpacity={0.8}
                 >
                     <Text style={styles.buttonText}>Cancel</Text>
                 </TouchableOpacity>
@@ -141,7 +145,7 @@ const styles = StyleSheet.create({
   },
   marg: {marginBottom: 20},
   inputText: {
-    borderBottomWidth: 1, 
+    borderBottomWidth: 1,
     borderBottomColor: '#A7ABAD',
     // width: '60%',
     // textAlign: 'center',
@@ -171,9 +175,14 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     backgroundColor: '#6989DE',
     borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
+    // borderWidth: 0,
+    // borderColor: '#000',
     // width: '60%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 3,
   },
   cancelButton: {
     marginRight: 40,
@@ -184,9 +193,14 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     backgroundColor: '#A7ABAD',
     borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
+    // borderWidth: 1,
+    // borderColor: '#fff',
     // width: '60%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 3,
   },
   buttonText: {
     color: '#fff',

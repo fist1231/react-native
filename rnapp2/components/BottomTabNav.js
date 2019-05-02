@@ -1,9 +1,10 @@
 import React from 'react'
+
 // You can import Ionicons from @expo/vector-icons if you use Expo or
 // react-native-vector-icons/Ionicons otherwise.
 import Ionicons from 'react-native-vector-icons/Ionicons';
 // import { Ionicons } from '@expo/vector-icons'; // Version can be specified in package.json
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'; // Version can be specified in package.json
+//import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'; // Version can be specified in package.json
 import Login from '../components/Login';
 import Main from '../components/Main';
 import UsersTable from '../components/users/UsersTable';
@@ -14,35 +15,50 @@ import Header from '../components/header';
 
 import { Button } from 'react-native';
 
+import {
+	  createBottomTabNavigator,
+	  createStackNavigator,
+	  createAppContainer,
+	} from 'react-navigation';
+
 // import { Ionicons } from '@expo/vector-icons'; // Version can be specified in package.json
 
 
-const LoginStack = StackNavigator({
-  Login: { screen: Login },
+const LoginStack = createStackNavigator({
+  Login: Login,
+  Main: Main,
 });
 
 
-const HomeStack = StackNavigator({
-  Main: { screen: Main },
+const HomeStack = createStackNavigator({
+  Main: Main,
+  UsersTable: UsersTable,
+  SolicitationsTable: SolicitationsTable,
+  ReviewProposalsTable: ReviewProposalsTable,
 });
 
-const UsersTableStack = StackNavigator({
-  UsersTable: { screen: UsersTable },
+const UsersTableStack = createStackNavigator({
+  Main: Main,
+  UsersTable: UsersTable,
+  SolicitationsTable: SolicitationsTable,
+  ReviewProposalsTable: ReviewProposalsTable,
 });
 
-const SolicitationsStack = StackNavigator({
-  SolicitationsTable: { screen: SolicitationsTable },
+const SolicitationsStack = createStackNavigator({
+  SolicitationsTable: SolicitationsTable,
 });
 
-const ReviewsStack = StackNavigator({
-  ReviewProposalsTable: { screen: ReviewProposalsTable },
-  title: 'Header title'
+const ReviewsStack = createStackNavigator({
+  ReviewProposalsTable: ReviewProposalsTable,
+//  title: 'Header title'
 });
 
-const AboutStack = StackNavigator({
+const AboutStack = createStackNavigator({
   About: { screen: About },
 });
 
+
+/*
 export default TabNavigator(
   {
     Login: { screen: LoginStack },
@@ -115,3 +131,19 @@ export default TabNavigator(
 
   }
 );
+*/
+
+
+export default createAppContainer(createBottomTabNavigator(
+  {
+    Login: LoginStack,
+    Home: HomeStack,
+    Users: UsersTableStack,
+    Solicitations: SolicitationsStack,
+    ReviewProposals: ReviewsStack,
+    About: AboutStack,
+  },
+  {
+    /* Other configuration remains unchanged */
+  }
+));

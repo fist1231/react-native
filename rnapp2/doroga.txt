@@ -31,9 +31,8 @@ e. start 2 consoles:
 1. Clear watchman watches: `watchman watch-del-all`.
 2. Delete the `node_modules` folder: `rm -rf node_modules && npm install`
 .
-3. Reset Metro Bundler cache: `rm -rf /tmp/metro-bundler-cache-*` or `npm
-start -- --reset-cache`.  4. Remove haste cache: `rm -rf /tmp/haste-map-re
-act-native-packager-*`.
+3. Reset Metro Bundler cache: `rm -rf /tmp/metro-bundler-cache-*` or `npm start -- --reset-cache`.  
+4. Remove haste cache: `rm -rf /tmp/haste-map-react-native-packager-*`.
 
 npm start -- --reset-cache
 
@@ -41,7 +40,8 @@ check version: npm list react
 
 
 
-delete node_modules, run yarn
+delete node_modules, 
+run yarn 
 remove read-only attribute
 
 react to 16.3.0:

@@ -5,6 +5,10 @@ import BottomTabNav from './components/BottomTabNav';
 
 // import UsersTable from './components/users/UsersTable';
 import { YellowBox } from 'react-native'
+
+//import Icon from 'react-native-vector-icons/MaterialIcons'
+//Icon.loadFont();
+
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 
 // import { createBottomTabNavigator } from 'react-navigation';

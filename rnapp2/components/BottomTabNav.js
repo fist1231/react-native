@@ -32,16 +32,10 @@ const LoginStack = createStackNavigator({
 
 const HomeStack = createStackNavigator({
   Main: Main,
-  UsersTable: UsersTable,
-  SolicitationsTable: SolicitationsTable,
-  ReviewProposalsTable: ReviewProposalsTable,
 });
 
 const UsersTableStack = createStackNavigator({
-  Main: Main,
   UsersTable: UsersTable,
-  SolicitationsTable: SolicitationsTable,
-  ReviewProposalsTable: ReviewProposalsTable,
 });
 
 const SolicitationsStack = createStackNavigator({

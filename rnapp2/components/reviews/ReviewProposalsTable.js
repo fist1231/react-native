@@ -15,14 +15,15 @@ class ReviewProposalsTable extends React.Component {
     super(props);
     this.state = {
       tableHead: ['Number', 'Panel', 'PI', 'Status', 'Grade'],
-      // widthArr: [40, 60, 80, 100]
+      // widthArr: [40, 60, 80, 100],
+      tableData: reviewProposalsMock(),
     }
   }
 
 
-  componentWillMount() {
-    const tableData = reviewProposalsMock();
-    this.setState({tableData: tableData});
+  componentDidMount() {
+    // const tableData = reviewProposalsMock();
+    // this.setState({tableData: tableData});
   }
 
   render() {

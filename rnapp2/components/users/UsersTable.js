@@ -20,16 +20,17 @@ class UsersTable extends React.Component {
     super(props);
     this.state = {
       tableHead: ['Username', 'First', 'Last', 'Registered on'],
-      // widthArr: [40, 60, 80, 100]
+      // widthArr: [40, 60, 80, 100],
+      tableData: usersMock(),
     }
   }
 
 
-  componentWillMount() {
+  componentDidMount() {
     // console.log('------------ isLoading? ' + this.props.isLoading);
     // this.props.isLoading?null:this.setState({proposals: this.props.value});
     // const tableData = [];
-    const tableData = usersMock();
+  // const tableData = usersMock();
     // for (let i = 0; i < 30; i += 1) {
     //   const rowData = [];
     //   for (let j = 0; j < 9; j += 1) {
@@ -38,7 +39,7 @@ class UsersTable extends React.Component {
     //   tableData.push(rowData);
 
 
-      this.setState({tableData: tableData});
+  // this.setState({tableData: tableData});
     // }
   }
 

@@ -27,7 +27,7 @@ class About extends React.Component {
     this.helpItems = this.helpItems.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.helpItems();
   }
 

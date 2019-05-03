@@ -15,14 +15,15 @@ class SolicitationsTable extends React.Component {
     super(props);
     this.state = {
       tableHead: ['Number', 'Title', 'Release', 'Close', 'Type', 'Fiscal Year'],
-      widthArr: [125, 180, 85, 85, 60, 60]
+      widthArr: [125, 180, 85, 85, 60, 60],
+      tableData: solicitationsMock(),
     }
   }
 
 
-  componentWillMount() {
-    const tableData = solicitationsMock();
-    this.setState({tableData: tableData});
+  componentDidMount() {
+    // const tableData = solicitationsMock();
+    // this.setState({tableData: tableData: tableData});
   }
 
   render() {

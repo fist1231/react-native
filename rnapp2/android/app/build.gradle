@@ -72,8 +72,10 @@ import com.android.build.OutputFile
  * ]
  */
 
+
 project.ext.react = [
-    entryFile: "index.js"
+    entryFile: "index.js",
+    // enableHermes: false // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -87,6 +89,8 @@ apply from: "../../node_modules/react-native/react.gradle"
  * the correct one based on the CPU architecture of their device.
  */
 def enableSeparateBuildPerCPUArchitecture = false
+def enableHermes = project.ext.react.get("enableHermes", true)
+def jscFlavor = 'org.webkit:android-jsc:+'
 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
@@ -94,7 +98,17 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-//    compileSdkVersion 23
+packagingOptions {
+       pickFirst 'lib/x86/libc++_shared.so'
+       pickFirst 'lib/x86_64/libjsc.so'
+       pickFirst 'lib/arm64-v8a/libjsc.so'
+       pickFirst 'lib/arm64-v8a/libc++_shared.so'
+       pickFirst 'lib/x86_64/libc++_shared.so'
+       pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+   }
+   
+   
+   //    compileSdkVersion 23
 //    buildToolsVersion "23.0.1"
     compileSdkVersion 28
 //    buildToolsVersion "26.0.2"
@@ -148,9 +162,18 @@ android {
 }
 
 dependencies {
+
+  if (enableHermes) {
+    def hermesPath = "../../node_modules/hermesvm/android/";
+    debugImplementation files(hermesPath + "hermes-debug.aar")
+    releaseImplementation files(hermesPath + "hermes-release.aar")
+  } else {
+    implementation jscFlavor
+  }
+
     implementation project(':react-native-gesture-handler')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:26.0.2"
+    compile 'androidx.appcompat:appcompat:1.0.0'
 //    compile "com.facebook.react:react-native:0.59.5"  // From node_modules
     compile 'com.facebook.react:react-native:+'  // From node_modules
 }

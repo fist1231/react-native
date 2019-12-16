@@ -188,3 +188,85 @@ compile project(':react-native-vector-icons')
 https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
 
 https://medium.com/@yosua1011/how-to-add-splash-screen-to-react-native-app-under-10-minutes-android-react-native-0-50-e19ed01b632b
+
+
+
+############################## Migrate to latest 0.61.5 react-native ##########################
+// npm upgrade
+// npm update
+
+I.
+Refactor -> Migrate to AndroidX
+add to MainApplication.java
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+
+II.
+replace in node_modules/metro-confid/src/default/blacklist.js:
+
+var sharedBlacklist = [
+  /node_modules[\/\\]react[\/\\]dist[\/\\].*/,
+  /website\/node_modules\/.*/,
+  /heapCapture\/bundle\.js/,
+  /.*\/__tests__\/.*/
+];
+
+
+III.
+add to app/build.gradle:
+
+1. 
+def enableHermes = project.ext.react.get("enableHermes", true)
+def jscFlavor = 'org.webkit:android-jsc:+'
+
+2.
+under android:
+
+packagingOptions {
+       pickFirst 'lib/x86/libc++_shared.so'
+       pickFirst 'lib/x86_64/libjsc.so'
+       pickFirst 'lib/arm64-v8a/libjsc.so'
+       pickFirst 'lib/arm64-v8a/libc++_shared.so'
+       pickFirst 'lib/x86_64/libc++_shared.so'
+       pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+   }
+
+3. under denendencies:
+ if (enableHermes) {
+    def hermesPath = "../../node_modules/hermesvm/android/";
+    debugImplementation files(hermesPath + "hermes-debug.aar")
+    releaseImplementation files(hermesPath + "hermes-release.aar")
+  } else {
+    implementation jscFlavor
+  }
+
+
+cd android; gradlew clean
+build with enableHermes false 
+build with enableHermes true
+
+IV.
+>npm i hermesvm --save  
+
+V.
+add react-native.config.js in root
+
+module.exports = {
+    assets: ['./assets/fonts/'],
+    dependencies: {
+        "react-native-gesture-handler": {
+          platforms: {
+            android: null,
+            ios: null
+          }
+        }
+      }
+    
+  };
+
+  remove from package.json
+
+  VI.
+  add:
+  import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+  to:
+  android/app/src/main/java/com/rnapp2/MainApplication.java
